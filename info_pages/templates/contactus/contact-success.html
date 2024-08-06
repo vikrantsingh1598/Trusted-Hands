@@ -1,0 +1,16 @@
+<!-- Contace page -->
+{% extends 'base.html' %} 
+{% block body_block %} 
+<div class="container"> 
+    <div class="row"> 
+        <div class="col-md-6"> {# Bootstrap column with medium size and 6 width #}
+            <br> 
+            <h2>Thank you for Contacting Us!!!</h2> 
+            <p>You won't be ignored.</p> {# Paragraph for assurance message #}
+            <p>You have {{ feedback_count }} feedback submission{{ feedback_count|pluralize }}.</p> {# Displays the number of feedback submissions with pluralization #}
+            <a href="{% url 'info_pages:contact_us' %}" class="btn btn-primary">Go back to Contact us</a> {# Link to go back to the contact us page with Bootstrap button styling #}
+            <br><br> 
+        </div>
+    </div>
+</div>
+{% endblock %} 

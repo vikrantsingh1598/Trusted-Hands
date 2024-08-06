@@ -1,0 +1,258 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+
+
+    <!-- first section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="home-banner">
+          <div class="row align-items-center w-100">
+            <div class="col-lg-7 col-md-10 mx-auto">
+              <div class="section-search aos" data-aos="fade-up">
+                <h1>Professional Services For Your Home & Commercial </h1>
+                <div class="search-box">
+                  <form action="http://127.0.0.1:8000/user/user_signin">
+                    <div class="search-input line">
+                      <div class="search-group-icon">
+                        <i class="feather-map-pin"></i>
+                      </div>
+                      <div class="form-group mb-0">
+                        <label>Your Location</label>
+                        <input type="text" class="form-control" placeholder="America">
+                      </div>
+                    </div>
+                    <div class="search-input">
+                      <div class="search-group-icon search-icon">
+                        <i class="feather-search"></i>
+                      </div>
+                      <div class="form-group mb-0">
+                        <label>What are you looking for?</label>
+                        <input type="text" class="form-control" placeholder="Car Repair Services">
+                      </div>
+                    </div>
+                    <div class="search-btn">
+                      <button class="btn btn-primary" type="submit"><i class="feather-search me-2"></i>Search</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <div class="banner-imgs">
+                <div class="banner-1 shape-1">
+                  <img class="img-fluid" alt="banner" src="{% static 'assets/img/banner1.png' %}">
+                </div>
+                <div class="banner-2 shape-3">
+                  <img class="img-fluid" alt="banner" src="{% static 'assets/img/banner2.png' %}">
+                </div>
+                <div class="banner-3 shape-3">
+                  <img class="img-fluid" alt="banner" src="{% static 'assets/img/banner3.png' %}">
+                </div>
+                <div class="banner-4 shape-2">
+                  <img class="img-responsive" alt="banner" src="{% static 'assets/img/banner4.png' %}">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Top providers -->
+    <section class="providers-section">
+      <div class="container">
+        <div class="section-heading">
+          <div class="row align-items-center">
+            <div class="col-md-6 aos" data-aos="fade-up">
+              <h2>Top Providers</h2>
+              <p>Meet Our Experts</p>
+            </div>
+            <div class="col-md-6 text-md-end aos" data-aos="fade-up">
+              <a href="http://127.0.0.1:8000/user/user_signin" class="btn btn-primary btn-view">View All<i
+                  class="feather-arrow-right-circle"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="row aos" data-aos="fade-up">
+          {% if providers %}
+            {% for provider in providers %}
+              <div class="col-lg-3 col-sm-6">
+                <div class="providerset">
+                  <div class="providerset-img">
+                    <a href="http://127.0.0.1:8000/user/user_signin">
+                      {% if provider.avatar %}
+                        <img src="{{provider.avatar.url}}" alt="img">
+                      {% else %}
+                        <img src="{% static 'assets/img/provider/provider-11.jpg' %}" alt="img">
+                      {% endif %}
+                    </a>
+                  </div>
+                  <div class="providerset-content">
+                    <div class="providerset-price">
+                      <div class="providerset-name">
+                        <h4><a href="http://127.0.0.1:8000/user/user_signin">{{provider.first_name}} {{provider.last_name}}</a><i class="fa fa-check-circle"
+                            aria-hidden="true"></i></h4>
+                        
+                      </div>
+                      
+                    </div>
+                    <div class="provider-rating">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+      <br><br>
+    </section>
+
+
+    
+    <section class="work-section pt-0">
+      <div class="container">
+        <div class="row aos" data-aos="fade-up">
+          <div class="col-md-12">
+            <div class="offer-paths">
+              <div class="offer-pathimg">
+                <img src="{% static 'assets/img/offer.png' %}" alt="img">
+              </div>
+              <div class="offer-path-content">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12 text-center">
+                      <div class="section-heading aos" data-aos="fade-up">
+                        <h2>How It Works</h2>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="work-box aos" data-aos="fade-up">
+                        <div class="work-icon">
+                          <span>
+                            <img src="{% static 'assets/img/icons/work-icon.svg' %}" alt="img">
+                          </span>
+                        </div>
+                        <h5>Choose What To Do</h5>
+                        <h4>01</h4>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="work-box aos" data-aos="fade-up">
+                        <div class="work-icon">
+                          <span>
+                            <img src="{% static 'assets/img/icons/find-icon.svg' %}" alt="img">
+                          </span>
+                        </div>
+                        <h5>Find What You Want</h5>
+                        <h4>02</h4>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="work-box aos" data-aos="fade-up">
+                        <div class="work-icon">
+                          <span>
+                            <img src="{% static 'assets/img/icons/place-icon.svg' %}" alt="img">
+                          </span>
+                        </div>
+                        <h5>Amazing Places</h5>
+                        <h4>03</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="service-section">
+      <div class="container">
+        <div class="section-heading">
+          <div class="row align-items-center">
+            <div class="col-md-6 aos" data-aos="fade-up">
+              <h2>Most Popular Services</h2>
+              <p>Explore the greatest our services. You won’t be disappointed</p>
+            </div>
+            <div class="col-md-6 text-md-end aos" data-aos="fade-up">
+              <div class="owl-nav mynav1"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="owl-carousel popular-slider">
+              {% for service in services %}
+                <div class="service-widget aos" data-aos="fade-up">
+                  <div class="service-img">
+                    <a href="http://127.0.0.1:8000/user/user_signin">
+                      {% if service.picture %}
+                        <img class="img-fluid serv-img" alt="Service Image" src="{{ service.picture.url }}">
+                      {% else %}
+                        <img src="{% static 'assets/img/provider/provider-11.jpg' %}" alt="img">
+                      {% endif %}
+                    </a>
+                    <div class="fav-item">
+                      <a href="http://127.0.0.1:8000/user/user_signin"><span class="item-cat">{{ service.category }}</span></a>
+                      <a href="http://127.0.0.1:8000/user/user_signin"><i class="feather-heart"></i></a>
+                    </div>
+                    <div class="item-info">
+                      {% if service.provider.avatar %}
+                        <a href="http://127.0.0.1:8000/user/user_signin"><span class="item-img"><img src="{{ service.provider.avatr.url }}" class="avatar"
+                              alt="User"></span></a>
+
+                      {% else %}
+                      <a href="http://127.0.0.1:8000/user/user_signin"><span class="item-img"><img src="{% static 'assets/img/provider/provider-11.jpg' %}" class="avatar"
+                              alt="User"></span></a>
+                      {% endif %}
+                    </div>
+                  </div>
+                  <div class="service-content">
+                    <h3 class="title"><a href="http://127.0.0.1:8000/user/user_signin">{{ service.title }}</a></h3>
+                    <p><i class="feather-map-pin"></i>{{ service.address.add1 }} {{ service.address.add2 }}, {{ service.address.city }}, {{ service.address.provision }}, {{ service.address.country }}
+                      <h6>${{ service.price }}</h6>
+                      <a href="http://127.0.0.1:8000/user/user_signin" class="btn btn-book">Book Now</a>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="btn-sec aos" data-aos="fade-up">
+          <a href="http://127.0.0.1:8000/user/user_signin" class="btn btn-primary btn-view">View All<i
+              class="feather-arrow-right-circle"></i></a>
+        </div>
+      </div>
+    </section>
+
+
+    <div class="mouse-cursor cursor-outer"></div>
+    <div class="mouse-cursor cursor-inner"></div>
+  </div>
+
+  <div class="progress-wrap active-progress">
+    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+      <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
+        style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919px, 307.919px; stroke-dashoffset: 228.265px;">
+      </path>
+    </svg>
+  </div>
+
+  <script data-cfasync="true" src="{% static 'assets/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js' %}"></script>
+  <script src="{% static 'assets/js/jquery-3.7.0.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'assets/js/feather.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'assets/js/owl.carousel.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'assets/plugins/select2/js/select2.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'assets/plugins/aos/aos.js' %}" type="text/javascript"></script>
+  <script src="{% static 'assets/js/backToTop.js' %}" type="text/javascript"></script>
+  <script src="{% static 'assets/js/script.js' %}" type="text/javascript"></script>
+  {% endblock %}

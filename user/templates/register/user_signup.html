@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-6 mx-auto">
+                <div class="login-wrap">
+                    <div class="login-header">
+                        <h3>User Signup</h3>
+                    </div>
+
+                    <form method="post" action="{% url 'user:user_signup' %}">
+                        {% csrf_token %}
+                        {{ form.non_field_errors }}
+                        <div class="form-group">
+                            {{ form.first_name.label_tag }}
+                            {{ form.first_name }}
+                            {{ form.first_name.errors }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.last_name.label_tag }}
+                            {{ form.last_name }}
+                            {{ form.last_name.errors }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.email.label_tag }}
+                            {{ form.email }}
+                            {{ form.email.errors }}
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                {{ form.phone.label_tag }}
+                                <div class="form-group">
+                                    {{ form.phone }}
+                                    {{ form.phone.errors }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{ form.password.label_tag }}
+                            <div class="pass-group">
+                                {{ form.password }}
+                                {{ form.password.errors }}
+                                <span class="toggle-password feather-eye-off"></span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary w-100 login-btn" type="submit">Signup</button>
+                        <div class="login-or">
+                            <span class="or-line"></span>
+                            <span class="span-or">Or, log in with your email</span>
+                        </div>
+                        
+                        <p class="no-acc">Already have an account ? <a href="{% url 'user:user_signin' %}"> Sign In</a></p>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mouse-cursor cursor-outer"></div>
+<div class="mouse-cursor cursor-inner"></div>
+
+</div>
+
+{% endblock %}
